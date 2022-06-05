@@ -47,7 +47,7 @@ app.post("/api/upload/", upload.single("file"), (req, res) => {
 // Routers
 
 app.get("/", (req, res) => {
-  res.send("Welcome to Backend API");
+  res.status(200).json("Hello");
 });
 
 app.use("/api/auth", authRouter);
