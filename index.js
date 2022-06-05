@@ -7,6 +7,7 @@ const multer = require("multer");
 const postRouter = require("./routers/post");
 const userRouter = require("./routers/user");
 const authRouter = require("./routers/auth");
+const PORT = process.env.PORT || 5000;
 
 // Middlewares
 const app = express();
@@ -45,7 +46,6 @@ app.post("/api/upload/", upload.single("file"), (req, res) => {
 });
 
 // Routers
-
 app.get("/", (req, res) => {
   res.status(200).json("Hello");
 });
@@ -54,6 +54,6 @@ app.use("/api/auth", authRouter);
 app.use("/api/post", postRouter);
 app.use("/api/user", userRouter);
 
-app.listen(process.env.PORT || 5000, () => {
-  console.log("Server is started in port 5000");
+app.listen(PORT, () => {
+  console.log("Server is started in port", PORT);
 });
